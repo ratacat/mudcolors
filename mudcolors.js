@@ -21,7 +21,7 @@ class mudcolors {
 
 	static getColor(target){
 		let color = this.colors.find(function(obj) {
-			if (obj.color == 'black'){
+			if (obj.color == target){
 				return obj;
 			}
 		});
