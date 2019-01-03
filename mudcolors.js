@@ -2,26 +2,7 @@
 
 
 class mudcolors {
-
 	static parse (string) {
-		const colors = [
-			{code: '\u001b[30m', tag: 'b'}, //black
-			{code: '\u001b[31m', tag: 'r'}, //red
-			{code: '\u001b[32m', tag: 'g'}, //green
-			{code: '\u001b[33m', tag: 'y'}, //yellow
-			{code: '\u001b[34m', tag: 'u'}, //blue
-			{code: '\u001b[35m', tag: 'm'}, //magenta
-			{code: '\u001b[36m', tag: 'c'}, //cyan
-			{code: '\u001b[0m', tag: 'w'}, //white
-			{code: '\u001b[30;1m', tag: 'B'}, //BLACK
-			{code: '\u001b[31;1m', tag: 'R'}, //RED
-			{code: '\u001b[32;1m', tag: 'G'}, //GREEN
-			{code: '\u001b[33;1m', tag: 'Y'}, //YELLOW
-			{code: '\u001b[34;1m', tag: 'U'}, //BLUE
-			{code: '\u001b[35;1m', tag: 'M'}, //MAGENTA
-			{code: '\u001b[36;1m', tag: 'C'}, //CYAN
-			{code: '\u001b[0;1m', tag: 'W'} //WHITE
-		];
 
 		const reset = '\u001b[0m';
 		const key = ']';
@@ -34,6 +15,34 @@ class mudcolors {
 
 		return string;
 	}
+
+	static getColor(target){
+		let color = this.colors.find(function(obj) {
+			if (obj.color == 'black'){
+				return obj;
+			}
+		});
+		return color.code;
+	}
 }
 
-module.exports = scy;
+mudcolors.colors = [
+	{code: '\u001b[30m', tag: 'b', color: 'black'}, //black
+	{code: '\u001b[31m', tag: 'r', color: 'red'}, //red
+	{code: '\u001b[32m', tag: 'g', color: 'green'}, //green
+	{code: '\u001b[33m', tag: 'y', color: 'yellow'}, //yellow
+	{code: '\u001b[34m', tag: 'u', color: 'blue'}, //blue
+	{code: '\u001b[35m', tag: 'm', color: 'magenta'}, //magenta
+	{code: '\u001b[36m', tag: 'c', color: 'cyan'}, //cyan
+	{code: '\u001b[0m', tag: 'w', color: 'white'}, //white
+	{code: '\u001b[30;1m', tag: 'B', color: 'BLACK'}, //BLACK
+	{code: '\u001b[31;1m', tag: 'R', color: 'RED'}, //RED
+	{code: '\u001b[32;1m', tag: 'G', color: 'GREEN'}, //GREEN
+	{code: '\u001b[33;1m', tag: 'Y', color: 'YELLOW'}, //YELLOW
+	{code: '\u001b[34;1m', tag: 'U', color: 'BLUE'}, //BLUE
+	{code: '\u001b[35;1m', tag: 'M', color: 'MAGENTA'}, //MAGENTA
+	{code: '\u001b[36;1m', tag: 'C', color: 'CYAN'}, //CYAN
+	{code: '\u001b[0;1m', tag: 'W', color: 'WHITE'} //WHITE
+];
+
+module.exports = mudcolors;
