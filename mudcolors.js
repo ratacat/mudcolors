@@ -2,12 +2,15 @@
 
 
 class mudcolors {
+	constructor() {
+		let colors = [];
+	}
 	static parse (string) {
 
 		const reset = '\u001b[0m';
 		const key = ']';
 
-		colors.forEach(function(color){
+		this.colors.forEach(function(color){
 			var r = new RegExp(color.tag + key,'g');
 			string = string.replace(r,reset + color.code);
 		});
