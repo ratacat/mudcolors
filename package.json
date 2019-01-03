@@ -1,0 +1,26 @@
+{
+  "name": "mudcolors",
+  "version": "1.0.0",
+  "description": "a javascript module for colorizing terminal output, specifically designed for MUDs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ratacat/mudcolors.git"
+  },
+  "keywords": [
+    "ansi",
+    "color",
+    "terminal",
+    "MUD",
+    "MUDs"
+  ],
+  "author": "Neuralsplash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ratacat/mudcolors/issues"
+  },
+  "homepage": "https://github.com/ratacat/mudcolors#readme"
+}
