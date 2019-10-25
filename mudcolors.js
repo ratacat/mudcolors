@@ -6,12 +6,15 @@ class mudcolors {
 		let colors = [];
 	}
 	static parse (string) {
+		if (typeof string != 'string'){
+			throw new error('mudcolors was passed something besides a string');
+		}
 
 		const reset = '\u001b[0m';
 		const key = ']';
 
 		this.colors.forEach(function(color){
-			var r = new RegExp(color.tag + key,'g');
+			var r = new RegExp(`(?<!\\[\d\dm)[${color.tag}]\\${key}`, 'g'); //new RegExp(color.tag + key,'g');
 			string = string.replace(r,reset + color.code);
 		});
 		string = string + reset;
@@ -30,12 +33,12 @@ class mudcolors {
 }
 
 mudcolors.colors = [
+	{code: '\u001b[35m', tag: 'm', color: 'magenta'}, //magenta
 	{code: '\u001b[30m', tag: 'b', color: 'black'}, //black
 	{code: '\u001b[31m', tag: 'r', color: 'red'}, //red
 	{code: '\u001b[32m', tag: 'g', color: 'green'}, //green
 	{code: '\u001b[33m', tag: 'y', color: 'yellow'}, //yellow
 	{code: '\u001b[34m', tag: 'u', color: 'blue'}, //blue
-	{code: '\u001b[35m', tag: 'm', color: 'magenta'}, //magenta
 	{code: '\u001b[36m', tag: 'c', color: 'cyan'}, //cyan
 	{code: '\u001b[37m', tag: 'w', color: 'white'}, //white
 	{code: '\u001b[90m', tag: 'B', color: 'BLACK'}, //BLACK
